@@ -1,0 +1,14 @@
+<div>
+  <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-4 col-md-3">
+        <button class="btn btn-primary btn-lg btn-block" {{action 'saveInvitation'}} disabled={{isDisabled}}>Request invitation</button>
+  </div>
+  {{#each filterVideos as |videos index|}}
+    <div class="boxes">
+      {{#each videos as |video _index|}}
+        {{#link-to 'video-detail' video}}
+          <img src="{{video.thmbnailLink}}" width="33.2%" height="25%" frameborder = "1">
+        {{/link-to}}
+      {{/each}}
+    </div>
+  {{/each}}
+</div>

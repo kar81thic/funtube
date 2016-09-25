@@ -6,7 +6,7 @@
     <div class="boxes">
       {{#each videos as |video _index|}}
         {{#link-to 'video-detail' video}}
-          {{video-listing video=video}}
+          <img src="{{video.thmbnailLink}}" width="33.2%" height="25%" frameborder = "1">
         {{/link-to}}
       {{/each}}
     </div>

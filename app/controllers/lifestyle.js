@@ -5,9 +5,6 @@ const {
 } = Ember;
 
 export default Ember.Controller.extend({
-
-  videoImg: 'https://pbs.twimg.com/profile_images/609730046618681344/HgPufn-i.png',
-
   filterVideos: computed('model.[]',{
      get(){
        const videos = this.get('model');

@@ -10,6 +10,10 @@ Router.map(function() {
   this.route('Lifestyle');
   this.route('Fun');
   this.route('video-detail', {path: '/:id'});
+  this.route('news');
+  this.route('entertainment');
+  this.route('technology');
+  this.route('animal');
 });
 
 export default Router;

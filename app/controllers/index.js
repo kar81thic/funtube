@@ -29,7 +29,7 @@ export default Ember.Controller.extend({
       var temp = []
       filterVideos.forEach( (video, index)=>{
         temp.push(video);
-        if(index !== 0 && (index + 1) % 3 === 0){
+        if(index !== 0 && (index + 1) % 4 === 0){
           resultArr.push(temp);
           temp = [];
         }else if(index === (filterVideos.get('length') - 1)){

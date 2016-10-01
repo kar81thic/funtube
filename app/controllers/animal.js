@@ -23,7 +23,7 @@ export default Ember.Controller.extend({
   filterVideos: computed('selectedCategory', 'categories.[]', {
     get(){
       const videos = this.get('model');
-      const selectedCategory = 'Lifestyle';//this.get('selectedCategory')'';
+      const selectedCategory = 'Animals';//this.get('selectedCategory')'';
       let filterVideos = (selectedCategory !== 'All') ? videos.filterBy('Catogory', selectedCategory) : videos;
       var resultArr =  Ember.A();
       var temp = []

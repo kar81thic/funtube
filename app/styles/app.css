@@ -165,6 +165,11 @@ footer button{
   width: 25%;
 }
 
+.col-1-4 img{
+  /*Change your prefered border color here*/
+  border: 1px solid #DDD;
+}
+
 /* 4 span rows */
 .row-4 {
   padding-left: 60px;

@@ -1,11 +1,10 @@
 <div>
-  {{#each filterVideos as |videos index|}}
-    <div class="boxes">
-      {{#each videos as |video _index|}}
-        {{#link-to 'video-detail' video}}
-          <img src="{{video.thmbnailLink}}" width="33.2%" height="25%" frameborder = "1">
-        {{/link-to}}
-      {{/each}}
-    </div>
-  {{/each}}
+  {{videos-table
+    videos=model
+    category=category}}
+  <footer>
+    <button class="request-invitation" {{action 'saveInvitation'}}>Request invitation</button>
+    <button class="previous-btn"  {{action 'prev'}}>Previous</button>
+    <button class="next-btn"  {{action 'next'}}>Next</button>
+  </footer>
 </div>

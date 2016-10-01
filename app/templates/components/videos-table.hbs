@@ -1,0 +1,9 @@
+{{#each filterVideos as |videos index|}}
+  <div class="row-4 clearfix">
+    {{#each videos as |video _index|}}
+      {{#link-to 'video-detail' video class='col-1-4'}}
+        <img src="{{video.thmbnailLink}}" width="90%" height="17%" frameborder = "1">
+      {{/link-to}}
+    {{/each}}
+  </div>
+{{/each}}

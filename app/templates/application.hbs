@@ -1,11 +1,6 @@
-<h1>FunTube</h1>
-<br><br><br><br><br><br>
-
-<div class="menu" border-style='' border-color='#ff0000 #0000ff'>
+<div class="header--menu clearfix">
       {{#link-to 'index'}}
-      <h1 class="left">
-        <em>Home</em>
-      </h1>
+      <h1 class="left"> Home </h1>
     {{/link-to}}
     <div class="left links">
       {{#link-to 'Lifestyle'}}
@@ -25,6 +20,6 @@
       {{/link-to}}
     </div>
   </div>
-  <div class="body">
-    {{outlet}}
-  </div>
+<div class="body">
+  {{outlet}}
+</div>

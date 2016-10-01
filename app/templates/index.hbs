@@ -1,18 +1,17 @@
 <div>
-  <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-4 col-md-3">
-        <button {{action 'saveInvitation'}}>Request invitation</button>
-  </div>
   {{#each filterVideos as |videos index|}}
-    <div class="boxes">
+    <div class="row-4 clearfix">
       {{#each videos as |video _index|}}
-        {{#link-to 'video-detail' video}}
-          <img src="{{video.thmbnailLink}}" width="24.8%" height="17%" frameborder = "1">
+        {{#link-to 'video-detail' video class='col-1-4'}}
+          <img src="{{video.thmbnailLink}}" width="90%" height="17%" frameborder = "1">
         {{/link-to}}
       {{/each}}
     </div>
   {{/each}}
 
-<footer>
-  <button  {{action 'next'}}>Next</button>
- </footer>
+  <footer>
+    <button class="request-invitation" {{action 'saveInvitation'}}>Request invitation</button>
+    <button class="previous-btn"  {{action 'prev'}}>Previous</button>
+    <button class="next-btn"  {{action 'next'}}>Next</button>
+  </footer>
 </div>

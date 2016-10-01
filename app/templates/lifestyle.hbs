@@ -5,8 +5,8 @@
   {{#each filterVideos as |videos index|}}
     <div class="boxes">
       {{#each videos as |video _index|}}
-        {{#link-to 'video-detail' video}}
-          <img src="{{video.thmbnailLink}}" width="33.2%" height="25%" frameborder = "1">
+        {{#link-to 'video-detail' video class='box'}}
+          <img src="{{video.thmbnailLink}}" frameborder = "1">
         {{/link-to}}
       {{/each}}
     </div>

@@ -1,5 +1,79 @@
+/* Basic Style*/
+* { margin:0; padding:0;}
+html, body { height: 100%; }
+/* resets */
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+.clearfix:after {
+	content: "";
+  display: table;
+  clear: both;
+}
+
+
 body {
+  font-family: Open Sans, Arial, Helvetica, Sans-serif;
   color: @beige;
+}
+
+.header--menu{
+  background: #12A7B9;
+  color: #FFF;
+  height: 60px;
+  padding: 0px 5px;
+}
+
+.header--menu h1{
+  float: left;
+  color: #fff;
+  padding: 18px 5px;
+  font-size: 18px;
+}
+
+.header--menu .links{
+  padding: 20px 0px;
+}
+
+.header--menu .links a{
+  color: #FFF;
+  text-decoration: none;
+  padding: 15px 2px;
+  margin: 5px 0;
+  font-size: 12px;
+}
+
+.header--bottom{
+  margin: 5px 0;
+}
+
+.header--bottom button.request-invitation{
+  padding: 10px;
+  background: #7C7977;
+  color: #fff;
+  float: right;
+  border:1px solid #7C7977;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+footer{
+  width: auto;
+  margin: 5px;
+  float: right;
+}
+
+footer button{
+  padding: 10px 15px;
+  background: #7C7977;
+  color: #fff;
+  border:1px solid #7C7977;
+  border-radius: 5px;
+  margin-right: 10px;
+  outline:none;
 }
 
 .boxes {
@@ -15,6 +89,10 @@ body {
   vertical-align:middle;
 }
 
+.box img{
+  width: 100%;
+  height: auto;
+}
 .box1 {
   background: @orange;
 }
@@ -57,16 +135,40 @@ body {
     }
 }
 
-/*====== Ignore section below ======*/
+/* grid */
+[class*="row-"] {
+  margin-bottom: 20px;
+}
+[class*="row-"]:last-child {
+  margin-bottom: 0;
+}
+[class*="col-"] {
+}
 
+/* all cols margin */
+[class*="col-"] {
+  margin-right: 20px;
+}
+[class*="col-"]:last-child {
+  margin-right: 0;
+}
+
+
+.col-1-4 {
+  float: left;
+  width: 25%;
+}
+
+/* 4 span rows */
+.row-4 {
+  padding-left: 60px;
+}
+.row-4 [class*="col-"]:first-child {
+  margin-left: -60px;
+}
+
+/*====== Ignore section below ======*/
 @orange: #BD4932;
 @yellow: #FFD34E;
 @green: #105B63;
 @beige: #FFFAD5;
-
-
-/* Basic Style*/
-* { margin:0; padding:0;}
-html, body { height: 100%; }
-button { padding: 5px 10px;position:absolute;bottom: 20px;left:20px;display: block; -webkit-appearance: none;background: @orange; outline: none;  border: 2px solid #DB9E36; color: @yellow; border-radius: 10px; box-shadow: 0 2px 3px rgba(0,0,0,0.5);cursor: pointer;}
-button:active {border-color: @beige; color:@beige;}

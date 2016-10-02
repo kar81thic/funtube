@@ -14,10 +14,9 @@ export default Ember.Route.extend({
 
     prev: function () {
        const model = this.get('currentModel');
-       const lifeStyleVideos = model.filterBy('Catogory', 'Lifestyle');
        let id;
-       if(lifeStyleVideos.get('length') > 0){
-          id = lifeStyleVideos.get('firstObject.id');
+       if(model.get('length') > 0){
+          id = model.get('firstObject.id');
        }
        this.set('startAt', null);
        this.set('endAt', id);
@@ -26,10 +25,9 @@ export default Ember.Route.extend({
 
      next: function () {
        const model = this.get('currentModel');
-       const lifeStyleVideos = model.filterBy('Catogory', 'Lifestyle');
        let id;
-       if(lifeStyleVideos.get('length') > 0){
-          id = lifeStyleVideos.get('firstObject.id');
+       if(model.get('length') > 0){
+          id = model.get('lastObject.id');
        }
        this.set('startAt', id);
        this.set('endAt', null);

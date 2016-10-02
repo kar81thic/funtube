@@ -1,25 +1,42 @@
-<div class="header--menu clearfix">
-      {{#link-to 'index'}}
-      <h1 class="left"> Home </h1>
-    {{/link-to}}
-    <div class="left links">
-      {{#link-to 'Lifestyle'}}
-        Lifestyle
-      {{/link-to}}
-      {{#link-to 'entertainment'}}
-        Entertainment
-      {{/link-to}}
-      {{#link-to 'technology'}}
-        Technology
-      {{/link-to}}
-      {{#link-to 'animal'}}
-        Animal
-      {{/link-to}}
-      {{#link-to 'news'}}
-        News
-      {{/link-to}}
+
+<div>
+  <img  src="assets/images/logo.png" height="70%" />
+</div>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
     </div>
-  </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li>{{#link-to 'index'}}
+              Home
+            {{/link-to}}</li>
+        <li>{{#link-to 'Lifestyle'}}
+              Lifestyle
+            {{/link-to}}</li>
+        <li>{{#link-to 'entertainment'}}
+              Entertainment
+        {{/link-to}}</li>
+        <li>{{#link-to 'technology'}}
+              Technology
+        {{/link-to}}</li>
+        <li> {{#link-to 'animal'}}
+              Animal
+        {{/link-to}}</li>
+        <li>  {{#link-to 'news'}}
+              News
+        {{/link-to}}</li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
 <div class="body">
   {{outlet}}
 </div>

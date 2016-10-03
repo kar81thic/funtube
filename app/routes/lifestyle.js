@@ -4,6 +4,31 @@ export default Ember.Route.extend({
 
   startAt: null,
   endAt: null,
+
+  videos: null,
+
+  getNextVideoIndex(videos){
+    let filterVideos = videos.filterBy('Catogory', 'Lifestyle');
+    if(videos.get('length') <= 0 || filterVideos.get('length') <=0){
+      return -1;
+    }
+    let lastVideoId = filterVideos.get('lastObject.id');
+    let lastVideoIndex = videos.mapBy('id').indexOf(lastVideoId);
+    return (videos.get('length') === (lastVideoIndex + 1))? lastVideoIndex : lastVideoIndex + 1;
+  },
+
+  incrementPaginationCount(){
+    let paginationCount = this.get('controller.paginationCount');
+    paginationCount++;
+    this.set('controller.paginationCount', paginationCount);
+  },
+
+  decrementPaginationCount(){
+    let paginationCount = this.get('controller.paginationCount');
+    paginationCount--;
+    this.set('controller.paginationCount', paginationCount);
+  },
+
   actions: {
 
     saveInvitation() {
@@ -13,21 +38,27 @@ export default Ember.Route.extend({
       },
 
     prev: function () {
-       const model = this.get('currentModel');
-       let id;
-       if(model.get('length') > 0){
-          id = model.get('firstObject.id');
-       }
-       this.set('startAt', null);
-       this.set('endAt', id);
-       this.refresh();
+      let paginationCount = this.get('controller.paginationCount');
+      if(paginationCount <= 0) {
+        return false;
+      }
+      const model = this.get('currentModel');
+      this.set('startAt', null);
+      this.set('endAt', model.get('firstObject.id'));
+      this.refresh();
      },
 
      next: function () {
        const model = this.get('currentModel');
-       let id;
-       if(model.get('length') > 0){
-          id = model.get('lastObject.id');
+       let nextVideoIndex = this.getNextVideoIndex(model);
+       if(nextVideoIndex === -1){
+        return false;
+       }
+
+       let lastVideo = model.objectAt(nextVideoIndex);
+       let id = lastVideo.get('id');
+       if(id === this.get('startAt')){
+         return false;
        }
        this.set('startAt', id);
        this.set('endAt', null);
@@ -38,7 +69,7 @@ export default Ember.Route.extend({
     model() {
 
       var query = {
-        limitToFirst: PAGE_SIZE + 1
+        limitToFirst: PAGE_SIZE,
       };
 
       if (this.get('startAt')) {
@@ -48,18 +79,22 @@ export default Ember.Route.extend({
       if (this.get('endAt')) {
         query.endAt = this.get('endAt');
         delete query.limitToFirst;
-        query.limitToLast = PAGE_SIZE+1;
+        query.limitToLast = PAGE_SIZE;
       }
 
       return this.store.query('video', query).then((videos) => {
-        let __videos = [];
-        if (this.get('startAt')) {
-          __videos = videos.slice(1);
-        } else {
-          __videos = videos.slice(0, videos.get('length')-1);
+        if(videos.filterBy('Catogory', 'Lifestyle').length > 0){
+          if(!!this.get('startAt')){
+            this.incrementPaginationCount();
+          }
+          if(!!this.get('endAt')){
+            this.decrementPaginationCount();
+          }
+          return videos;
+        }else{
+          //Return Previous loaded videos, when new records does not contains Lifestyle Catogory videos
+          return this.get('currentModel');
         }
-        let ret = __videos.filterBy('Catogory', 'Lifestyle');
-        return (ret.get('length') > 20) ? ret.slice(0, 20) : ret;
       });
     },
 });

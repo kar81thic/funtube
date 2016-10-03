@@ -3,7 +3,9 @@
     videos=model
     category=category}}
   <footer>
-    <button class="previous-btn"  {{action 'prev'}}>Previous</button>
+    {{#if isPreviousBtnDisabled}}
+      <button class="previous-btn"  {{action 'prev'}}>Previous</button>
+    {{/if}}
     <button class="next-btn"  {{action 'next'}}>Next</button>
   </footer>
 </div>

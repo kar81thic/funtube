@@ -13,7 +13,8 @@ export default Ember.Component.extend({
   filterVideos: computed('videos.[]', {
     get(){
       const videos = this.get('videos');
-      let filterVideos = videos.filterBy('Catogory', 'Lifestyle');
+      const category = this.get('category');
+      let filterVideos = (category === 'All') ? videos : videos.filterBy('Catogory', category);
       filterVideos = (filterVideos.get('length') > 20) ? filterVideos.slice(0, 20) : filterVideos;
       var temp = [];
       var resultArr = [];

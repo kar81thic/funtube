@@ -1,9 +1,10 @@
 import Ember from 'ember';
-const PAGE_SIZE = 100;
 export default Ember.Route.extend({
 
   startAt: null,
   endAt: null,
+
+  pageSize: 100,
 
   videos: null,
 
@@ -67,7 +68,7 @@ export default Ember.Route.extend({
 
     },
     model() {
-
+      const PAGE_SIZE = this.get('pageSize');
       var query = {
         limitToFirst: PAGE_SIZE,
       };

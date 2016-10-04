@@ -4,7 +4,10 @@
     category=category}}
   <footer>
     <button class="request-invitation" {{action 'saveInvitation'}}>Request invitation</button>
-    <button class="previous-btn"  {{action 'prev'}}>Previous</button>
+
+    {{#if isPreviousBtnDisabled}}
+      <button class="previous-btn"  {{action 'prev'}}>Previous</button>
+    {{/if}}
     <button class="next-btn"  {{action 'next'}}>Next</button>
   </footer>
 </div>

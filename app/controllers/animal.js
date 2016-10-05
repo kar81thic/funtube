@@ -1,6 +1,6 @@
 import Ember from 'ember';
-
-export default Ember.Controller.extend({
+import LifestyleController from 'funfacts/controllers/lifestyle';
+export default LifestyleController.extend({
 
   category: 'Animals'
 });

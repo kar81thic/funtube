@@ -1,18 +1,5 @@
 import Ember from 'ember';
+import LifestyleRoute from 'funfacts/routes/lifestyle';
+export default LifestyleRoute.extend({
 
-export default Ember.Route.extend({
-  model() {
-    return this.store.findAll('video');
-  },
-
-  actions: {
-    prev: function () {
-      Ember.Logger.log('Previous Button');
-      //TODO: Previous button action logic goes here...
-     },
-     next: function () {
-       Ember.Logger.log('Next Button');
-       //TODO: Next button action logic goes here...
-     }
-   }
 });

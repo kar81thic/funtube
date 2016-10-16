@@ -12,11 +12,21 @@ export default Ember.Component.extend({
 
   pageCount: 0,
 
-  totalPageCount: null,
-
   startAt: 0,
 
   endAt: 20,
+
+  pageSize: 20,
+
+  totalPageCount: computed('videos.[]', {
+    get(){
+      const videos = this.get('videos');
+      const length = videos.get('length');
+      Ember.Logger.log('videos length :: ', length);
+
+      return Math.ceil(length / this.get('pageSize'));
+    }
+  }),
 
   filterVideos: computed('pageCurrentIndex', {
     get(){

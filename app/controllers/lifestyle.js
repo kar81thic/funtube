@@ -1,23 +1,7 @@
-import Ember from 'ember';
+import IndexController from 'funfacts/controllers/index';
 
-const {
-  computed
-} = Ember;
-
-export default Ember.Controller.extend({
+export default IndexController.extend({
 
   category: 'Lifestyle',
 
-  paginationCount: null,
-
-  isPreviousBtnDisabled: computed('paginationCount', {
-    get(){
-      const paginationCount = this.get('paginationCount');
-      return !(!paginationCount || paginationCount <= 0);
-    }
-  }),
-
-  init(){
-    this.set('paginationCount', 0);
-  }
 });

@@ -1,9 +1,6 @@
 <div>
   {{videos-table
-    videos=model
+    videos=videos
+    totalPageCount=totalPageCount
     category=category}}
-  <footer>
-    <button class="previous-btn"  {{action 'prev'}}>Previous</button>
-    <button class="next-btn"  {{action 'next'}}>Next</button>
-  </footer>
 </div>

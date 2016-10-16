@@ -1,6 +1,6 @@
-import Ember from 'ember';
-import LifestyleController from 'funfacts/controllers/lifestyle';
-export default LifestyleController.extend({
+import IndexController from 'funfacts/controllers/index';
+
+export default IndexController.extend({
 
   category: 'Animals'
 });

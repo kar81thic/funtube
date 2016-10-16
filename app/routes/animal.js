@@ -1,5 +1,8 @@
 import Ember from 'ember';
-import LifestyleRoute from 'funfacts/routes/lifestyle';
-export default LifestyleRoute.extend({
 
+export default Ember.Route.extend({
+
+  model() {
+    return this.store.findAll('video');
+  }
 });
